@@ -30,7 +30,14 @@ const getHourlyForecast = (lat,lon) =>{
             }
 
         );
+        const humidityInfo = result.current.humidity;
+        const windInfo = result.current.wind_speed;
+        const uvi = result.current.uvi;
+        humidity.innerHTML = `${humidityInfo} &#37;`;
+        wind.innerHTML = `${windInfo} m/s`;
+        pressure.innerHTML = uvi;
         hourlyDetails.innerHTML = hourData;
+        console.log(result)
 
     })
 };
@@ -48,9 +55,6 @@ const retrieveWeatherDetails = (searchValue) => {
             const weatherArr = data.weather;
             const weatherDescription = weatherArr[0].description;
             const weatherIcon = weatherArr[0].icon;
-            const humidityInfo = data.main.humidity;
-            const windInfo = data.wind.speed;
-            const pressureInfo = data.main.pressure;
             const lat = data.coord.lat;
             const  lon  = data.coord.lon;
             const image = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
@@ -62,11 +66,7 @@ const retrieveWeatherDetails = (searchValue) => {
                         <p class="city-text" id="description">${weatherDescription}</p>
                     </div>
                     <img class="weather-icon" alt=${weatherDescription} src=${image}></div>`;
-            console.log(data);
             weatherContainer.innerHTML = cityInfo;
-            humidity.innerHTML = `${humidityInfo} &#37;`;
-            wind.innerHTML = `${windInfo} m/s`;
-            pressure.innerHTML = pressureInfo;
             getHourlyForecast(lat, lon)
         })
         .catch(err => console.log(err));
