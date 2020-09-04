@@ -1,0 +1,177 @@
+html, body {
+    height: 100vh;
+    /*overflow: hidden;*/
+}
+
+body {
+    /*background-image: url("./images/rain.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: cover;*/
+    /*background-position: center center;*/
+}
+
+main {
+    max-width: 600px;
+    margin: 5% auto;
+    border-radius: 20px;
+    width: 90%;
+    color: white;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(4, 67, 105, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    padding: 10px;
+
+}
+
+.weather-app {
+
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+}
+
+.weather-location {
+    flex: 1 1 400px;
+}
+
+.nyc-weather {
+    padding: 10px;
+}
+
+.weather-details {
+    /*flex: 1 1 500px;*/
+    /*opacity: 1;*/
+    margin-bottom: 10px;
+}
+
+form {
+    padding: 10px;
+}
+
+input[type="text"] {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 80%;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 0;
+    color: #fff;
+    border-bottom: 2px solid rgb(245, 245, 245);
+}
+
+button {
+    padding: 10px;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    margin-top: 5px;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: rgba(4, 67, 105, 1);
+}
+
+button:focus, input:focus {
+    outline: none;
+}
+
+.forecast {
+    padding: 0 10px;
+}
+
+
+.title {
+    text-align: center;
+}
+
+.details-card {
+    background-color: rgba(0, 212, 255, 0.3);
+    border-radius: 10px;
+    margin: 2% 0;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.single-details, .more-details {
+    flex: 1 1 150px;
+}
+
+.nyc-text {
+    text-align: center;
+    margin-top: 30%;
+}
+
+.city-details {
+    display: flex;
+    flex-wrap: wrap;
+
+
+}
+
+.city-name, .city-weather {
+    flex: 0 1 250px;
+
+}
+.city-name{
+    margin-left: 30px;
+}
+.city-weather{
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+}
+
+.weather-info {
+    float: left;
+    /*margin-right: 5px;*/
+}
+
+.city-text {
+    margin: 5px 0 2px 0 !important;
+    text-transform: capitalize;
+}
+
+.city-date {
+    font-size: 14px;
+}
+.weather-icon{
+    width: 60px;
+    height: 60px;
+}
+.hourly-forecast{
+    display: flex;
+    flex-wrap: wrap;
+    height: 80px;
+    overflow-y: auto;
+}
+.hourly-forecast::-webkit-scrollbar{
+    width: 4px;
+}
+.hourly-forecast::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(4, 73, 114,0.3);
+    border-radius: 10px;
+}
+
+.hourly-forecast::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(4, 73, 114,0.5);
+}
+.hourly-details{
+    flex: 1 1 100px;
+}
+.hour-icon{
+    width: 30px;
+    height: 30px;
+}
+.hour-temp{
+    margin-bottom: 15px;
+    display: inline-block;
+}
+@media screen and (max-width: 500px) {
+    body {
+        background-position: bottom right;
+    }
+}

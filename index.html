@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>NYCweather</title>
+</head>
+<body>
+<main>
+    <div class="weather-details">
+        <form id="submit_city">
+            <label>
+                <input type="text" id="search_city" placeholder="Type Location">
+            </label>
+            <button type="submit">search</button>
+        </form>
+        <div class="city-details">
+            <div class="city-name">
+                <p class="city-text" id="city_name"></p>
+                <span class="city-date" id="city_date"></span>
+            </div>
+            <div class="city-weather" id="city_weather">
+            </div>
+        </div>
+        <div>
+            <h4>Hourly Forecast</h4>
+            <div class="hourly-forecast" id="hourly-forecast">
+            </div>
+        </div>
+        <div class="details">
+            <h4>Weather Details</h4>
+            <div class="details-card" id="weather_details">
+                <div class="single-details">
+                    <div class="weather-item">
+                        <p class="city-text">Humidity</p>
+                        <span id="humidity"></span>
+                    </div>
+                </div>
+                <div class="more-details">
+                    <p class="city-text">Wind</p>
+                    <span id="wind"></span>
+                </div>
+                <div class="single-details">
+                    <p class="city-text">Pressure</p>
+                    <span id="pressure"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--    </div>-->
+
+</main>
+<script src="index.js"></script>
+</body>
+</html>
