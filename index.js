@@ -36,6 +36,7 @@ const getHourlyForecast = (lat,lon) =>{
         wind.innerHTML = `${result.current.wind_speed} m/s`;
         pressure.innerHTML = result.current.uvi;
         hourlyDetails.innerHTML = hourData;
+        console.log(result)
 
     }).catch(error=>{
         console.log(error)
@@ -61,11 +62,20 @@ const retrieveWeatherDetails = () => {
                     </div>
                     <img class="weather-icon" alt=${weatherArr[0].description} src=${image}></div>`;
             weatherContainer.innerHTML = cityInfo;
-            getHourlyForecast(data.coord.lat, data.coord.lon)
-        })
-        .catch(err => console.log(err));
+            getHourlyForecast(data.coord.lat, data.coord.lon);
+        }).catch(err => console.log(err));
+
 };
 retrieveWeatherDetails();
 getSearchResults();
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker
+            .register("serviceWorker.js")
+            .then(res => console.log("service worker registered"))
+            .catch(err => console.log("service worker not registered", err))
+    })
+}
 
 

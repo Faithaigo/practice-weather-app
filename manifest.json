@@ -1,0 +1,10 @@
+{
+  "name": "Weather Forecast",
+  "short_name": "WeatherApp",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#000",
+  "orientation": "portrait-primary",
+  "icons": []
+}
