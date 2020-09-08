@@ -11,7 +11,8 @@ const hourlyDetails = document.getElementById('hourly-forecast');
 const getSearchResults = () =>{
     submitCity.addEventListener('submit',(event)=>{
         event.preventDefault();
-        retrieveWeatherDetails(searchCity.value)
+        localStorage.setItem('value',JSON.stringify(searchCity.value));
+        retrieveWeatherDetails()
     })
 };
 
@@ -24,54 +25,47 @@ const getHourlyForecast = (lat,lon) =>{
             const hourIcon = hour.weather[0].icon;
             const ic = `https://openweathermap.org/img/wn/${hourIcon}@2x.png`;
             const desc = hour.weather[0].description;
-            hourData +=`<div class="hourly-details"><span>${hour.dt}</span><br/>
+            const time = new Date(hour.dt *1000).toLocaleTimeString([], {hour: '2-digit'});
+            hourData +=`<div class="hourly-details"><span>${time}</span><br/>
                     <img class="hour-icon" alt=${desc} src=${ic}><br/>
-                    <span class="hour-temp">${hour.temp} &#8451;</span></div>`
+                    <span class="hour-temp">${hour.temp} &#8451;</span></div>`;
             }
 
         );
-        const humidityInfo = result.current.humidity;
-        const windInfo = result.current.wind_speed;
-        const uvi = result.current.uvi;
-        humidity.innerHTML = `${humidityInfo} &#37;`;
-        wind.innerHTML = `${windInfo} m/s`;
-        pressure.innerHTML = uvi;
+        humidity.innerHTML = `${result.current.humidity} &#37;`;
+        wind.innerHTML = `${result.current.wind_speed} m/s`;
+        pressure.innerHTML = result.current.uvi;
         hourlyDetails.innerHTML = hourData;
-        console.log(result)
 
+    }).catch(error=>{
+        console.log(error)
     })
 };
 
-const retrieveWeatherDetails = (searchValue) => {
-    const value = !searchValue ? 'New York':searchValue;
+const retrieveWeatherDetails = () => {
+    let searchValue = JSON.parse(localStorage.getItem('value'));
+    const value = !searchValue ? 'Kampala':searchValue;
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&appid=252963480e18a0b04bf3178e96bfa484`;
     let cityInfo = "";
     fetch(url).then(response => response.json())
         .then(data =>{
-            const city_name = data.name;
-            const time = data.dt;
-            const day = new Date(time * 1000).toDateString();
-            const temperature = data.main.temp;
+            const day = new Date(data.dt * 1000).toDateString();
             const weatherArr = data.weather;
-            const weatherDescription = weatherArr[0].description;
-            const weatherIcon = weatherArr[0].icon;
-            const lat = data.coord.lat;
-            const  lon  = data.coord.lon;
-            const image = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
-            city.innerHTML = city_name;
+            const image = `https://openweathermap.org/img/wn/${weatherArr[0].icon}@2x.png`;
+            city.innerHTML = data.name;
             cityDate.innerHTML = day;
             cityInfo += `<div>
                      <div class="weather-info">
-                        <h4 class="city-text" id="city_temperature">${temperature} &#8451;</h4>
-                        <p class="city-text" id="description">${weatherDescription}</p>
+                        <h4 class="city-text" id="city_temperature">${data.main.temp} &#8451;</h4>
+                        <p class="city-text" id="description">${weatherArr[0].description}</p>
                     </div>
-                    <img class="weather-icon" alt=${weatherDescription} src=${image}></div>`;
+                    <img class="weather-icon" alt=${weatherArr[0].description} src=${image}></div>`;
             weatherContainer.innerHTML = cityInfo;
-            getHourlyForecast(lat, lon)
+            getHourlyForecast(data.coord.lat, data.coord.lon)
         })
         .catch(err => console.log(err));
 };
-retrieveWeatherDetails(searchCity.value);
+retrieveWeatherDetails();
 getSearchResults();
 
 
