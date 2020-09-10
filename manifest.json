@@ -6,5 +6,10 @@
   "background_color": "#fff",
   "theme_color": "#000",
   "orientation": "portrait-primary",
-  "icons": []
+  "icons": [
+    {
+      "src": "/images/weather-icon.png",
+      "type": "image/png", "sizes": "512x512"
+    }
+  ]
 }
