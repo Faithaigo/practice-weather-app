@@ -36,10 +36,7 @@ const getHourlyForecast = (lat,lon) =>{
         wind.innerHTML = `${result.current.wind_speed} m/s`;
         pressure.innerHTML = result.current.uvi;
         hourlyDetails.innerHTML = hourData;
-        console.log(result)
-
     }).catch(error=>{
-        console.log(error)
     })
 };
 
@@ -63,7 +60,7 @@ const retrieveWeatherDetails = () => {
                     <img class="weather-icon" alt=${weatherArr[0].description} src=${image}></div>`;
             weatherContainer.innerHTML = cityInfo;
             getHourlyForecast(data.coord.lat, data.coord.lon);
-        }).catch(err => console.log(err));
+        }).catch(err =>{});
 
 };
 retrieveWeatherDetails();
