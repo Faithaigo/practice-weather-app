@@ -32,9 +32,11 @@ const getHourlyForecast = (lat,lon) =>{
             }
 
         );
-        humidity.innerHTML = `${result.current.humidity} &#37;`;
-        wind.innerHTML = `${result.current.wind_speed} m/s`;
-        pressure.innerHTML = result.current.uvi;
+        const fResult = !result ? {} : result;
+        const fCurrent = !fResult.current ? {} : fResult.current;
+        humidity.innerHTML = `${!fCurrent.humidity ? "" :fCurrent.humidity} &#37;`;
+        wind.innerHTML = `${!fCurrent.wind_speed ? "" : fCurrent.wind_speed} m/s`;
+        pressure.innerHTML = !fCurrent.uvi ? "" :fCurrent.uvi;
         hourlyDetails.innerHTML = hourData;
     }).catch(error=>{
     })
