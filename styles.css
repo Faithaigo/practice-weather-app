@@ -1,14 +1,7 @@
 html, body {
     height: 100vh;
-    /*overflow: hidden;*/
 }
 
-body {
-    /*background-image: url("./images/skying.jpg");*/
-    /*background-repeat: no-repeat;*/
-    /*background-size: cover;*/
-    /*background-position: center center;*/
-}
 
 main {
     max-width: 600px;
@@ -162,9 +155,4 @@ button:focus, input:focus {
 .hour-temp{
     margin-bottom: 15px;
     display: inline-block;
-}
-@media screen and (max-width: 500px) {
-    body {
-        background-position: bottom right;
-    }
 }
