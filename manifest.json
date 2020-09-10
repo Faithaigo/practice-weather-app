@@ -1,15 +1,15 @@
 {
   "name": "Weather Forecast",
   "short_name": "WeatherApp",
-  "start_url": "index.html",
+  "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#000",
+  "theme_color": "#044369",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "images/icon.png",
-      "type": "image/png", "sizes": "512x512"
+      "src": "images/icon-512x512.png",
+      "type": "image/png", "sizes": "512x512", "purpose": "any maskable"
     }
   ]
 }
