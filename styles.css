@@ -16,14 +16,6 @@ main {
 }
 
 
-.weather-location {
-    flex: 1 1 400px;
-}
-
-.nyc-weather {
-    padding: 10px;
-}
-
 .weather-details {
     margin-bottom: 10px;
 }
@@ -62,14 +54,6 @@ button:focus, input:focus {
     outline: none;
 }
 
-.forecast {
-    padding: 0 10px;
-}
-
-
-.title {
-    text-align: center;
-}
 
 .details-card {
     background-color: rgba(0, 186, 226, 0.3);
@@ -92,7 +76,6 @@ button:focus, input:focus {
 .city-details {
     display: flex;
     flex-wrap: wrap;
-
 
 }
 

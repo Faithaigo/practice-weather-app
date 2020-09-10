@@ -7,18 +7,17 @@
           content="width=device-width, initial-scale=1.0, maximum-scale=5, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="Weather application to display weather data based on user searches">
+    <meta name="theme-color" content="#044369" />
     <link rel="stylesheet" href="styles.css">
     <link rel="apple-touch-icon" href="images/icon-512x512.png" />
     <title>NYCweather</title>
-    <meta name="theme-color" content="#044369" />
 </head>
 <body>
 <main>
     <div class="weather-details">
         <form id="submit_city">
-            <label>
                 <input type="text" id="search_city" placeholder="Type Location">
-            </label>
+            <label for="search_city"></label>
             <button type="submit">search</button>
         </form>
         <div class="city-details">
@@ -54,7 +53,6 @@
             </div>
         </div>
     </div>
-
 </main>
 <script src="index.js"></script>
 </body>
