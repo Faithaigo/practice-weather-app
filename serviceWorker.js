@@ -1,9 +1,8 @@
 const weatherForecast = "weather-forecast-v1";
 const assets = [
-    "/",
-    "/index.html",
-    "/styles.css",
-    "/index.js",
+    "index.html",
+    "styles.css",
+    "index.js",
 ];
 
 self.addEventListener("install", installEvent => {
